@@ -14,25 +14,25 @@ class admin(commands.Cog):
     @commands.has_guild_permissions(administrator=True)
     async def sync_commands(self, ctx):
         await self.bot.tree.sync()
-        await complete(ctx, f'/commands synced')
+        await admin.complete(ctx, f'/commands synced')
 
     @commands.command()
     @commands.has_guild_permissions(administrator=True)
     async def load(self, ctx, extension: str):
         await self.bot.load_extension(f'cogs.{extension}')
-        await complete(ctx, f'Loaded: {extension}')
+        await admin.complete(ctx, f'Loaded: {extension}')
 
     @commands.command()
     @commands.has_guild_permissions(administrator=True)
     async def unload(self, ctx, extension: str):
         await self.bot.unload_extension(f'cogs.{extension}')
-        await complete(ctx, f'Unloaded: {extension}')
+        await admin.complete(ctx, f'Unloaded: {extension}')
 
     @commands.command()
     @commands.has_guild_permissions(administrator=True)
     async def reload(self, ctx, extension: str):
         await self.bot.unload_extension(f'cogs.{extension}')
-        await complete(ctx, f'Reloaded: {extension}')
+        await admin.complete(ctx, f'Reloaded: {extension}')
 
 async def setup(bot):
     await bot.add_cog(admin(bot))
