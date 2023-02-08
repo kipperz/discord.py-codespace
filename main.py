@@ -1,4 +1,9 @@
-import discord, logging, platform, os, sys
+import logging
+import os
+import platform
+import sys
+
+import discord
 from discord.ext import commands
 
 from config import secrets, settings
