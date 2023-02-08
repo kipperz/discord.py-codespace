@@ -12,16 +12,16 @@
 
 	"postCreateCommand": "pip3 install --user -r requirements.txt",
 
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"ms-python.vscode-pylance"
-		  	],
-			"settings": {
-				"python.linting.pylintArgs": ["--disable=C0111"]
-			}
-		}
-	}
+	// "customizations": {
+	// 	"vscode": {
+	// 		"extensions": [
+	// 			"ms-python.vscode-pylance"
+	// 	  	],
+	// 		"settings": {
+	// 			"python.linting.pylintArgs": ["--disable=C0111"]
+	// 		}
+	// 	}
+	// }
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
