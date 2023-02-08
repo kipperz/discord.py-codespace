@@ -1,6 +1,6 @@
 from discord.ext import commands
 
-class commands(commands.Cog):
+class CommandsCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -9,4 +9,4 @@ class commands(commands.Cog):
         await ctx.send('Hello!')
 
 async def setup(bot):
-    await bot.commands(events(bot))
+    await bot.commands(CommandsCog(bot))

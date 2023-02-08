@@ -1,1 +1,1 @@
-bot_token = 'your bot token'
+BOT_TOKEN = 'your bot token'

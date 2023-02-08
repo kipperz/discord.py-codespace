@@ -1,6 +1,6 @@
 from discord.ext import commands
 
-class events(commands.Cog):
+class EventsCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -9,4 +9,4 @@ class events(commands.Cog):
         await self.bot.process_commands(message)
 
 async def setup(bot):
-    await bot.add_cog(events(bot))
+    await bot.add_cog(EventsCog(bot))

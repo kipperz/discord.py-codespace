@@ -1,1 +1,1 @@
-application_id = "your application id"
+APPLICATION_ID = '12345'

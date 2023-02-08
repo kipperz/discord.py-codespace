@@ -1,11 +1,11 @@
 import asyncio
 from discord.ext import commands
 
-class admin(commands.Cog):
+class admin_cog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    async def complete(ctx, message: str):
+    async def complete(self, ctx, message: str):
         await ctx.send(message)
         await asyncio.sleep(0.5)
         await ctx.message.delete()
@@ -14,25 +14,25 @@ class admin(commands.Cog):
     @commands.has_guild_permissions(administrator=True)
     async def sync_commands(self, ctx):
         await self.bot.tree.sync()
-        await admin.complete(ctx, f'/commands synced')
+        await admin_cog.complete(self, ctx, '/commands synced')
 
     @commands.command()
     @commands.has_guild_permissions(administrator=True)
     async def load(self, ctx, extension: str):
         await self.bot.load_extension(f'cogs.{extension}')
-        await admin.complete(ctx, f'Loaded: {extension}')
+        await admin_cog.complete(self, ctx, f'Loaded: {extension}')
 
     @commands.command()
     @commands.has_guild_permissions(administrator=True)
     async def unload(self, ctx, extension: str):
         await self.bot.unload_extension(f'cogs.{extension}')
-        await admin.complete(ctx, f'Unloaded: {extension}')
+        await admin_cog.complete(self, ctx, f'Unloaded: {extension}')
 
     @commands.command()
     @commands.has_guild_permissions(administrator=True)
     async def reload(self, ctx, extension: str):
         await self.bot.unload_extension(f'cogs.{extension}')
-        await admin.complete(ctx, f'Reloaded: {extension}')
+        await admin_cog.complete(self, ctx, f'Reloaded: {extension}')
 
 async def setup(bot):
-    await bot.add_cog(admin(bot))
+    await bot.add_cog(admin_cog(bot))
